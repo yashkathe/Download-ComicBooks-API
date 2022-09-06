@@ -34,7 +34,8 @@ exports.getLatestComics = (page) => {
 
                                 const title = $('.post-info').find('h1').text().trim();
                                 const description = $('.post-contents').find('p').first().children().remove().end().text().trim();
-                                // const info = $('.post-contents').children('p').first().remove().end().children('p').first().end().text().trim().split('|');
+                                const infoArr = $('.post-contents > p:nth-child(7)').text().split("|");
+                                const info = infoArr.splice(1, 3);
 
                                 $('.aio-pulse').each(function() {
                                     const downloadLinks = $(this).children('a').attr('href');
@@ -44,7 +45,7 @@ exports.getLatestComics = (page) => {
                                     downloadLinksArr.push(downloadLinksObj);
                                 });
                                 const completeObj = {
-                                    title, description, coverPage, downloadLinks: downloadLinksArr
+                                    title, description, coverPage, info, downloadLinks: downloadLinksArr
                                 };
                                 resolve(completeObj);
                             }).catch(

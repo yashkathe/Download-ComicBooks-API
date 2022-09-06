@@ -1,7 +1,14 @@
-const api = require('comicbooks-api')
+const api = require('comicbooks-api');
 
-const a = console.log(api.testFunction(1))
-const b = console.log(api.getLatestComics(1))
+api.getLatestComics(1).then(function(comics) {
+    Promise.all(comics).then(values => {
+        return values;
+    });
+});
 
-console.log(a)
-console.log(b)
+api.getComicsThroughSearch('batman', 2).then(function(comics) {
+    Promise.all(comics).then(values => {
+        return values;
+    });
+})
+

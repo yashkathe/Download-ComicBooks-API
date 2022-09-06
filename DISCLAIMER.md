@@ -3,7 +3,7 @@
 
 <div align="center">
 
-<h2>This project: ani-cli</h2>
+<h2>This project: download-comicbooks-api</h2>
 
 <br>
 
@@ -33,7 +33,7 @@ This project has no control on the content it is serving, using copyrighted cont
 A browser is a tool, and the maliciousness of the tool is directly based on the user.
 </b>
 
-This project uses client-side content access mechanisms. Hence, the copyright infrigements or DMCA in this project's regards are to be forwarded to the associated site by the associated notifier of any such claims. As of writing this is gogoplay
+This project uses client-side content access mechanisms. Hence, the copyright infrigements or DMCA in this project's regards are to be forwarded to the associated site by the associated notifier of any such claims. As of writing this is getcomics.info
 
 <b> Do not harass the maintainer. </b>
 
