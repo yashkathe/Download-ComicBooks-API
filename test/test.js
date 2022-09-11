@@ -1,14 +1,16 @@
 const api = require('comicbooks-api');
 
-api.getLatestComics(1).then(function(comics) {
-    Promise.all(comics).then(values => {
-        return values;
-    });
-});
+//Get comics from Home Page
 
-api.getComicsThroughSearch('batman', 2).then(function(comics) {
-    Promise.all(comics).then(values => {
-        return values;
-    });
-})
+const getHomePage = async () => {
+    const comics = await api.getLatestComics(1)
+    // console.log(comics)
+}
+
+//Get comics through search
+
+const searchComics = async () => {
+    const comics = await api.getComicsThroughSearch('batman', 1)
+    // console.log(comics)
+}
 

@@ -59,7 +59,7 @@ exports.getComicsThroughSearch = (query, page = 1) => {
                                 );
                             }
                             ).catch(err => {
-                                if(err) { reject("promise failed on 2nd"); }
+                                if(err) { reject(err); }
                             });
                             comics.push(promise);
                         }
@@ -67,5 +67,13 @@ exports.getComicsThroughSearch = (query, page = 1) => {
                 );
                 resolve(comics);
             });
+    }).then(function(comics) {
+        return Promise.all(comics).then(values => {
+            return values;
+        });
+    }).catch(err => {
+        if(err) {
+            console.log(err);
+        }
     });
 };

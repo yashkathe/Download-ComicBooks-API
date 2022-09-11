@@ -1,16 +1,18 @@
-# Unoffical Comic books api
+# Unoffical Comic books api 
+
+_Not Published_
 
 The following api returns comic book information from various publishers including marvel, dc, archie and many more publications.
 
 ## Example
+Implementing the library for api calls  
 
 ```js
 const comicsApi = require('comicbooks-api');
 
-comicsApi.getComicsThroughSearch('batman', 2).then(function(comics){
-    Promise.all(comics).then(values => {
-        return values
-      });
+app.get('/', async (req, res) => {
+  const comics = await comicsApi.getLatestComics(1) 
+  res.json(news)
 })
 ```
 
@@ -30,10 +32,9 @@ example object:
       [Object], [Object],
       [Object], [Object],
       [Object], [Object],
-      [Object]
     ]
   }
 ```  
 
 ## Report Problems
-If you have any problem regarding this project read the following [disclaimer](https://github.com/yashkathe/download-comicbooks-api/blob/master/DISCLAIMER.md)
+If you have any problems regarding this project, read the following [disclaimer](https://github.com/yashkathe/download-comicbooks-api/blob/master/DISCLAIMER.md)

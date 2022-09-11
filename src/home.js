@@ -60,11 +60,15 @@ exports.getLatestComics = (page) => {
             );
             resolve(comics);
         }).catch(err => {
-            if(err) { reject("promise failed on 2nd"); }
+            if(err) { reject(err); }
         });
-    }
-    );
-}
-
-
-
+    }).then(function(comics) {
+        return Promise.all(comics).then(values => {
+            return values;
+        });
+    }).catch(err => {
+        if(err) {
+            console.log(err);
+        }
+    });
+};
