@@ -1,14 +1,12 @@
-//get info for latest comics from home page
-
-const { URL } = require('../config/sitelinks');
+const { Marvel } = require('../config/sitelinks');
 const cheerio = require('cheerio');
 const axios = require('axios');
 
-exports.getLatestComics = (page) => {
+exports.getMarvelComics = (page) => {
 
     return new Promise((resolve, reject) => {
 
-        axios(`${URL.base}/page/${page}`).then(response => {
+        axios(`${Marvel.marvelHome}/${page}`).then(response => {
             const html = response.data;
             const $ = cheerio.load(html);
 
