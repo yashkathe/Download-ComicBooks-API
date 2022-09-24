@@ -1,7 +1,6 @@
 
 exports.URL = {
-    base: "https://getcomics.info/",
-    basePages: "https://getcomics.info/page/",
+    base: "https://getcomics.info/page",
     searchUri1: "https://getcomics.info/page",
     searchUri2: "?s="
 };
