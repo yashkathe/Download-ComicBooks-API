@@ -85,10 +85,3 @@ exports.getZenescopeComics = async (page) => {
     const uri = otherComics.zenescope;
     return await parentScraper(uri, page);
 };
-
-
-
-
-
-
-
