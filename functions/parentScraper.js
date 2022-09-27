@@ -1,6 +1,8 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
 
+const { infoScraper } = require('./infoScraper');
+
 exports.parentScraper = (uri, page) => {
 
     return new Promise((resolve, reject) => {
@@ -32,7 +34,9 @@ exports.parentScraper = (uri, page) => {
                                 const title = $('.post-info').find('h1').text().trim();
                                 const description = $('.post-contents').find('p').first().children().remove().end().text().trim();
                                 const infoArr = $('.post-contents > p:nth-child(7)').text().split("|");
-                                const info = infoArr.splice(1, 3).join();
+                                const infoStr = infoArr.splice(1, 3).join();
+
+                                const info = infoScraper(infoStr);
 
                                 $('.aio-pulse').each(function() {
                                     const downloadLinks = $(this).children('a').attr('href');

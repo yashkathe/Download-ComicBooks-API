@@ -27,7 +27,11 @@ example object:
     title: 'Batman – One Dark Knight #3 (2022)',
     description: 'From the sewers under Gotham to the roiling waters of the harbor, Batman’s march toward Blackgate Prison is nearing its end…but far from being a passive prisoner, E.M.P. has his own mission to fulfill—and there’s no way he’s letting the Dark Knight stop him from carrying it out!',
     coverPage: 'https://i0.wp.com/getcomics.info/share/uploads/2022/07/Batman-One-Dark-Knight-3-2022.jpg?fit=400%2C512&ssl=1',
-    info: [ ' Image Format : JPG ', ' Year : 2022 ', ' Size : 277 MB' ],
+    info: { 
+        ImageFormat: 'JPG', 
+        Year: '2022', 
+        Size: '634 MB' 
+    },
     downloadLinks: [
       [Object], [Object],
       [Object], [Object],
