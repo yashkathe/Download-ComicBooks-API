@@ -1,6 +1,6 @@
 {
   "name": "comicbooks-api",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,12 +8,11 @@
     "test": "node ./__test__/test.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Yash Kathe",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.12",
-    "nodemon": "^2.0.19",
-    "puppeteer": "^17.1.0"
+    "nodemon": "^2.0.19"
   }
 }
