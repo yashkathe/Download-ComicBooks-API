@@ -7,7 +7,7 @@ exports.URL = {
 
 exports.DC = {
     dcHome: "https://getcomics.info/cat/dc/page",
-    dcWeek: "https://getcomics.info/tag/dc-week/",
+    dcWeek: "https://getcomics.info/tag/dc-week/page",
     dcVertigo: "https://getcomics.info/tag/vertigo/page",
     dcWildstorm: "https://getcomics.info/tag/wildstorm/page"
 };

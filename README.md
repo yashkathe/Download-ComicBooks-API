@@ -1,7 +1,5 @@
 # Unoffical Comic books api 
 
-_Not Published_
-
 The following api returns comic book information from various publishers including marvel, dc, archie and many more publications.
 
 ## Example
