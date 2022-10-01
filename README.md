@@ -10,7 +10,7 @@ const comicsApi = require('comicbooks-api');
 
 app.get('/', async (req, res) => {
   const comics = await comicsApi.getLatestComics(1) 
-  res.json(news)
+  res.json(comics)
 })
 ```
 

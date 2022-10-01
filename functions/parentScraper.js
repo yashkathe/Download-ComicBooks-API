@@ -34,9 +34,7 @@ exports.parentScraper = (uri, page) => {
                                 const title = $('.post-info').find('h1').text().trim();
                                 const description = $('.post-contents').find('p').first().children().remove().end().text().trim();
                                 const infoArr = $('.post-contents > p:nth-child(7)').text().split("|");
-                                const infoStr = infoArr.splice(1, 3).join();
-
-                                const info = infoScraper(infoStr);
+                                const infoStr = infoArr.splice(1, 3).join().toString();
 
                                 $('.aio-pulse').each(function() {
                                     const downloadLinks = $(this).children('a').attr('href');
@@ -45,13 +43,17 @@ exports.parentScraper = (uri, page) => {
                                     downloadLinksObj[ downloadTitle ] = downloadLinks;
                                     downloadLinksArr.push(downloadLinksObj);
                                 });
+                                let info 
+                                if(infoStr.length !== 0) {
+                                    info = infoScraper(infoStr);
+                                }
                                 const completeObj = {
                                     title, description, coverPage, info, downloadLinks: downloadLinksArr
                                 };
                                 resolve(completeObj);
                             }).catch(
                                 err => {
-                                    if(err) { reject("promise failed on first"); }
+                                    if(err) { reject(err); }
                                 }
                             );
                         });
