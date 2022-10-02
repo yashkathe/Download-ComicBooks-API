@@ -5,21 +5,36 @@ The following api returns comic book information from various publishers includi
 ## Example
 Implementing the library for api calls  
 
+### Example 1 
+
 ```js
 const comicsApi = require('comicbooks-api');
 
 app.get('/', async (req, res) => {
-  const comics = await comicsApi.getLatestComics(1) 
-  res.json(comics)
+    const comics = await comicsApi.getLatestComics(1) 
+    res.json(comics)
 })
 ```
 
-The following function takes two paramters:  
-1. Search Query
-2. Page Number  (default value = 1)
+The above function takes one argument:  
+1. Page Number  
 
-The function returns an array of objects containing comic book   information  
-example object:
+### Example 2  
+
+```js
+const comicsApi = require('comicbooks-api');
+
+app.get('/', async (req, res) => {
+    const comics = await comicsApi.getComicsThroughSearch('batman', 1) 
+    res.json(comics)
+})
+```
+The above function takes one argument: 
+1. Search Query 
+2. Page Number
+
+The function returns an array of objects containing comic book   information    
+### example object:
 ```js
   {
     title: 'Batman – One Dark Knight #3 (2022)',
@@ -37,6 +52,8 @@ example object:
     ]
   }
 ```  
+
+**To see full list of available functions take a look at test.js in test folder**
 
 ## Report Problems
 If you have any problems regarding this project, read the following [disclaimer](https://github.com/yashkathe/download-comicbooks-api/blob/master/DISCLAIMER.md)
