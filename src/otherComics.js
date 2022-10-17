@@ -46,7 +46,7 @@ exports.getBlackMaskComics = async (page) => {
     return await parentScraper(uri, page);
 };
 
-exports.getBookStudiosComics = async (page) => {
+exports.getBoomStudiosComics = async (page) => {
     const uri = otherComics.boomStudios;
     return await parentScraper(uri, page);
 };

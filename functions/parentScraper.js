@@ -33,8 +33,7 @@ exports.parentScraper = (uri, page) => {
                                 const description = $('.post-contents').find('p').first().children().remove().end().text().trim();
                                 const infoArr = $('.post-contents > p:nth-child(7)').text().split("|");
                                 const infoStr = infoArr.splice(1, 3).join().toString();
-                                const pageNumber = $('ul.page-numbers > li:nth-child(5) > a:nth-child(1)').text()
-                                console.log(pageNumber)
+                                const pageNumber = $('ul.page-numbers > li:nth-child(5) > a:nth-child(1)').text();
 
                                 $('.aio-pulse').each(function() {
                                     const downloadLinks = $(this).children('a').attr('href');
@@ -50,7 +49,7 @@ exports.parentScraper = (uri, page) => {
                                 }
                                 //store all scraped data into an objects
                                 const comic = {
-                                    pageNumber ,title, description, coverPage, info, downloadLinks: downloadLinksArr
+                                    pageNumber, title, description, coverPage, info, downloadLinks: downloadLinksArr
                                 };
                                 resolve(comic);
                             }).catch(
@@ -64,7 +63,6 @@ exports.parentScraper = (uri, page) => {
                 }
             );
             resolve(comics);
-            return Promise.all(comics);
         }).catch(err => {
             if(err) { reject(err); }
         });

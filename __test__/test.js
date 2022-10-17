@@ -81,9 +81,9 @@ const blackMaskComics = async () => {
     const comics = await comicbookAPI.getBlackMaskComics(1);
     console.log(comics);
 };
-
-const bookstudioComics = async () => {
-    const comics = await comicbookAPI.getBookStudiosComics(1);
+// 
+const boomStudioComics = async () => {
+    const comics = await comicbookAPI.getBoomStudiosComics(1);
     console.log(comics);
 };
 
@@ -142,7 +142,7 @@ const zenescopeComics = async () => {
 // avatarComics()
 // aspenComics()
 // blackMaskComics()
-// bookstudioComics()
+// boomStudioComics()
 // darkhorseComics()
 // dynamiteComics()
 // IDWComics()

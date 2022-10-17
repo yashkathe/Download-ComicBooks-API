@@ -4,7 +4,7 @@ const { getDCComics, getDCComicsVertigo, getDCComicsWildstorm } = require('./src
 const { getMarvelComics } = require('./src/marvelcomics');
 const { getEuropeComics, getImageComics, get2000adComics, getAftershockComics,
     getAntarticPressComics, getArchieComics, getAvatarPressComics, getAspenComics,
-    getBlackMaskComics, getBookStudiosComics, getDarkHorseComics, getDynamiteComics,
+    getBlackMaskComics, getBoomStudiosComics, getDarkHorseComics, getDynamiteComics,
     getIDWComics, getLionForgeComics, getOniPressComics, getValiantComics,
     getZenescopeComics } = require('./src/otherComics');
 
@@ -25,7 +25,7 @@ module.exports = {
     getAvatarPressComics,
     getAspenComics,
     getBlackMaskComics,
-    getBookStudiosComics,
+    getBoomStudiosComics,
     getDarkHorseComics,
     getDynamiteComics,
     getLionForgeComics,
