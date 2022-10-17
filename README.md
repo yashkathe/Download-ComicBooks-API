@@ -3,7 +3,7 @@
 The following api returns comic book information from various publishers including marvel, dc, archie and many more publications.
 
 ## Example
-Implementing the library for api calls  
+Implementing the library for API calls  
 
 ### Example 1 
 
@@ -29,7 +29,7 @@ app.get('/', async (req, res) => {
     res.json(comics)
 })
 ```
-The above function takes one argument: 
+The above function takes two arguments: 
 1. Search Query 
 2. Page Number
 
@@ -53,7 +53,78 @@ The function returns an array of objects containing comic book   information
   }
 ```  
 
-**To see full list of available functions take a look at test.js in test folder**
+## List of Publishers
+
+- Marvel Comics  
+getMarvelComics( pageNumber )
+
+- DC Comics  
+getDCComics( pageNumber )
+
+- DC Vertigo  
+getDCComicsVertigo( pageNumber )
+
+- DC Wildstorm    
+getDCComicsWildstorm( pageNumber )
+
+- Europe Comics  
+getEuropeComics( pageNumber )
+
+- Image Comics  
+getImageComics( pageNumber )
+
+- 2000AD  
+ad2000comics( pageNumber )
+
+- After Shock  
+getAftershockComics( pageNumber ) 
+
+- Antartic Press  
+getAntarticPressComics( pageNumber )
+
+- Archie    
+getArchieComics( pageNumber )
+
+- Avatar Press  
+getAvatarPressComics( pageNumber )
+
+- Aspen  
+getAspenComics( pageNumber )
+
+- Black Mask  
+getBlackMaskComics( pageNumber )
+
+- Boom Studios
+getBoomStudiosComics( pageNumber )
+
+- Dark Horse  
+getDarkHorseComic( pageNumber )
+
+- Dynamite  
+getDynamiteComics( pageNumber )
+
+- IDW  
+getIDWComics( pageNumber )
+
+- Lion Forge    
+getLionForgeComics( pageNumber )
+
+- Oni Press  
+getOniPressComics( pageNumber )
+
+- Valiant  
+getValiantComics( pageNumber )
+
+- ZeneScope  
+getZenescopeComics( pageNumber )
+
+## Other Functions
+
+- Get recently published comics from all publishers  
+getLatestComics( pageNumber )
+
+- Search comics through search query  
+getComicsThroughSearch( searchQuery , pageNumber )
 
 ## Report Problems
-If you have any problems regarding this project, read the following [disclaimer](https://github.com/yashkathe/download-comicbooks-api/blob/master/DISCLAIMER.md)
+If you have any problems regarding this project, read the following [disclaimer](https://github.com/yashkathe/Download-ComicBooks-API/blob/master/DISCLAIMER.md)
