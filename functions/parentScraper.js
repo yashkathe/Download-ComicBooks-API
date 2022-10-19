@@ -8,8 +8,7 @@ exports.parentScraper = (uri, page) => {
     return new Promise((resolve, reject) => {
 
         axios(`${uri}/${page}`).then(response => {
-            const html = response.data;
-            const $ = cheerio.load(html);
+            const $ = cheerio.load(response.data);
 
             const comics = [];
 
@@ -24,32 +23,27 @@ exports.parentScraper = (uri, page) => {
                         const promise = new Promise((resolve, reject) => {
                             axios(`${href}`).then(response => {
 
-                                const downloadLinksArr = [];
+                                const downloadLinks = [];
 
                                 const html = response.data;
                                 const $ = cheerio.load(html);
 
                                 const title = $('.post-info').find('h1').text().trim();
                                 const description = $('.post-contents').find('p').first().children().remove().end().text().trim();
-                                const infoArr = $('.post-contents > p:nth-child(7)').text().split("|");
-                                const infoStr = infoArr.splice(1, 3).join().toString();
-                                const pageNumber = $('ul.page-numbers > li:nth-child(5) > a:nth-child(1)').text();
+                                const scrapedInfo = $('.post-contents > p:nth-child(7)').text().split("|").splice(1, 3).join().toString();
 
                                 $('.aio-pulse').each(function() {
-                                    const downloadLinks = $(this).children('a').attr('href');
-                                    const downloadTitle = $(this).children('a').attr('title');
-                                    let downloadLinksObj = {};
-                                    downloadLinksObj[ downloadTitle ] = downloadLinks;
-                                    downloadLinksArr.push(downloadLinksObj);
+                                    const scrapedDownloadLinks = $(this).children('a').attr('href');
+                                    const scrapedDownloadTitle = $(this).children('a').attr('title');
+                                    let downloadLink = {};
+                                    downloadLink[ scrapedDownloadTitle ] = scrapedDownloadLinks;
+                                    downloadLinks.push(downloadLink);
                                 });
-                                let info;
-                                // remove out all the empty info strings
-                                if(infoStr.length !== 0) {
-                                    info = infoScraper(infoStr);
-                                }
+
+                                const info = infoScraper(scrapedInfo);
                                 //store all scraped data into an objects
                                 const comic = {
-                                    pageNumber, title, description, coverPage, info, downloadLinks: downloadLinksArr
+                                    title, description, coverPage, info, downloadLinks
                                 };
                                 resolve(comic);
                             }).catch(
