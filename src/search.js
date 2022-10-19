@@ -1,8 +1,10 @@
 //get info through searches
 
-const { URL } = require('../config/sitelinks');
+const { URL } = require('../endpoints/endpoints');
 const cheerio = require('cheerio');
 const axios = require('axios');
+
+const { infoScraper } = require('../functions/infoScraper');
 
 exports.getComicsThroughSearch = (query, page = 1) => {
 
@@ -11,14 +13,13 @@ exports.getComicsThroughSearch = (query, page = 1) => {
 
         axios(`${URL.searchUri1}/${page}/${URL.searchUri2}${search}`).then(
             response => {
-                const html = response.data;
-                const $ = cheerio.load(html);
+                const $ = cheerio.load(response.data);
 
                 const comics = [];
 
                 const error = $('.pagination-button').text();
                 if(error === "No Result: Please try another search query.") {
-                    reject("didn't find any comics");
+                    reject("No results availabe for you search query");
                 }
 
                 $('article').each(
@@ -31,30 +32,31 @@ exports.getComicsThroughSearch = (query, page = 1) => {
                             const promise = new Promise((resolve, reject) => {
                                 axios(`${href}`).then(response => {
 
-                                    const downloadLinksArr = [];
+                                    const downloadLinks = [];
 
-                                    const html = response.data;
-                                    const $ = cheerio.load(html);
+                                    const $ = cheerio.load(response.data);
 
                                     const title = $('.post-info').find('h1').text().trim();
                                     const description = $('.post-contents').find('p').first().children().remove().end().text().trim();
-                                    const infoArr = $('.post-contents > p:nth-child(7)').text().split("|");
-                                    const info = infoArr.splice(1, 3);
+                                    const scrapedInfo = $('.post-contents > p:nth-child(7)').text().split("|").splice(1, 3).join().toString();
 
                                     $('.aio-pulse').each(function() {
-                                        const downloadLinks = $(this).children('a').attr('href');
-                                        const downloadTitle = $(this).children('a').attr('title');
-                                        let downloadLinksObj = {};
-                                        downloadLinksObj[ downloadTitle ] = downloadLinks;
-                                        downloadLinksArr.push(downloadLinksObj);
+                                        const scrapedDownloadLinks = $(this).children('a').attr('href');
+                                        const scrapedDownloadTitle = $(this).children('a').attr('title');
+                                        let downloadLink = {};
+                                        downloadLink[ scrapedDownloadTitle ] = scrapedDownloadLinks;
+                                        downloadLinks.push(downloadLink);
                                     });
-                                    const completeObj = {
-                                        title, description, coverPage, info, downloadLinks: downloadLinksArr
+
+                                    const info = infoScraper(scrapedInfo);
+
+                                    const comic = {
+                                        title, description, coverPage, info, downloadLinks
                                     };
-                                    resolve(completeObj);
+                                    resolve(comic);
                                 }).catch(
                                     err => {
-                                        if(err) { reject("promise failed on first"); }
+                                        if(err) { reject(err); }
                                     }
                                 );
                             }
@@ -68,9 +70,7 @@ exports.getComicsThroughSearch = (query, page = 1) => {
                 resolve(comics);
             });
     }).then(function(comics) {
-        return Promise.all(comics).then(values => {
-            return values;
-        });
+        return Promise.all(comics);
     }).catch(err => {
         if(err) {
             console.log(err);

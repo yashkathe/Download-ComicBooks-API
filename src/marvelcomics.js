@@ -1,4 +1,4 @@
-const { Marvel } = require('../config/sitelinks');
+const { Marvel } = require('../endpoints/endpoints');
 const {parentScraper} = require('../functions/parentScraper')
 
 exports.getMarvelComics = async (page) => {

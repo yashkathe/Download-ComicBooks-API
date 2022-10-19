@@ -53,7 +53,7 @@ The function returns an array of objects containing comic book   information
   }
 ```  
 
-## List of Publishers
+## List of Publishers and their respective functions
 
 - Marvel Comics  
 getMarvelComics( pageNumber )
@@ -94,7 +94,7 @@ getAspenComics( pageNumber )
 - Black Mask  
 getBlackMaskComics( pageNumber )
 
-- Boom Studios
+- Boom Studios  
 getBoomStudiosComics( pageNumber )
 
 - Dark Horse  

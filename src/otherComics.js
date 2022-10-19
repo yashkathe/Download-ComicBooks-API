@@ -1,4 +1,4 @@
-const { otherComics } = require('../config/sitelinks.js');
+const { otherComics } = require('../endpoints/endpoints');
 const { parentScraper } = require('../functions/parentScraper');
 
 exports.getEuropeComics = async (page) => {

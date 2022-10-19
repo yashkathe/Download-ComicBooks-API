@@ -1,4 +1,4 @@
-const { DC } = require('../config/sitelinks');
+const { DC } = require('../endpoints/endpoints');
 const { parentScraper } = require('../functions/parentScraper');
 
 exports.getDCComics = async (page) => {
