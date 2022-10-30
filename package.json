@@ -1,6 +1,6 @@
 {
   "name": "comicbooks-api",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,10 @@
     "test-init": "jest --init",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yashkathe/Download-ComicBooks-API"
+},
   "keywords": [
     "comics",
     "comicbooks",
@@ -21,12 +25,10 @@
   "license": "GPL-3.0",
   "dependencies": {
     "axios": "^0.27.2",
-    "cheerio": "^1.0.0-rc.12",
-    "sleep": "^6.3.0"
+    "cheerio": "^1.0.0-rc.12"
   },
   "devDependencies": {
     "jest": "^29.2.2",
-    "nodemon": "^2.0.20",
-    "sleep-promise": "^9.1.0"
+    "nodemon": "^2.0.20"
   }
 }

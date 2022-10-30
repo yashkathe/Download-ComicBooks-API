@@ -37,19 +37,21 @@ The function returns an array of objects containing comic book   information
 ### example object:
 ```js
   {
-    title: 'Batman – One Dark Knight #3 (2022)',
-    description: 'From the sewers under Gotham to the roiling waters of the harbor, Batman’s march toward Blackgate Prison is nearing its end…but far from being a passive prisoner, E.M.P. has his own mission to fulfill—and there’s no way he’s letting the Dark Knight stop him from carrying it out!',
-    coverPage: 'https://i0.wp.com/getcomics.info/share/uploads/2022/07/Batman-One-Dark-Knight-3-2022.jpg?fit=400%2C512&ssl=1',
-    info: { 
-        ImageFormat: 'JPG', 
-        Year: '2022', 
-        Size: '634 MB' 
-    },
-    downloadLinks: [
-      [Object], [Object],
-      [Object], [Object],
-      [Object], [Object],
-    ]
+    title: "Batman – Beyond the White Knight #6 (2022)",
+    coverPage: "https://i0.wp.com/getcomics.info/share/uploads/2022/10/Batman-Beyond-the-White-Knight-6-2022.jpg?fit=400%2C615&ssl=1",
+    description: "After years of rivalry, it’s the showdown you’ve been waiting for…Jason Todd versus Dick Grayson! Who’s the best Robin? Find out this issue! Plus, with the help of an unexpected new ally, Bruce Wayne aims to take Derek Powers down for good. But will the malevolent millionaire’s newfound powers prove to be too much for the former Batman?",
+    information: {
+      "ImageFormat": "JPG",
+      "Size": "64 MB",
+      "Year": "2022",
+    }
+    downloadLinks: {
+      DOWNLOADNOW: "link here",
+      MEDIAFIRE: "link here",
+      READONLINE: "link here",
+      UFILE: "link here",
+      ZIPPYSHARE: "link here",
+    }
   }
 ```  
 

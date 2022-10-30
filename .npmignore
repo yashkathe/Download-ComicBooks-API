@@ -1,2 +1,6 @@
 __test__
 junk
+DISCLAIMER.md
+jest.config.js
+.gitignore
+node_modules

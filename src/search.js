@@ -32,48 +32,37 @@ exports.getComicsThroughSearch = (query, page = 1) => {
                             const promise = new Promise((resolve, reject) => {
                                 axios(`${href}`).then(response => {
 
-                                    const downloadLinks = [];
-
                                     const $ = cheerio.load(response.data);
 
                                     const title = $('.post-info').find('h1').text().trim();
                                     const description = $('.post-contents').find('p').first().children().remove().end().text().trim();
                                     const scrapedInfo = $('.post-contents > p:nth-child(7)').text().split("|").splice(1, 3).join().toString();
 
+                                    let downloadLinks = {};
                                     $('.aio-pulse').each(function() {
+                                        const scrapedDownloadTitle = $(this).children('a').attr('title').split(' ').join('');
                                         const scrapedDownloadLinks = $(this).children('a').attr('href');
-                                        const scrapedDownloadTitle = $(this).children('a').attr('title');
-                                        let downloadLink = {};
-                                        downloadLink[ scrapedDownloadTitle ] = scrapedDownloadLinks;
-                                        downloadLinks.push(downloadLink);
+                                        downloadLinks[ scrapedDownloadTitle ] = scrapedDownloadLinks;
                                     });
 
-                                    const info = infoScraper(scrapedInfo);
+                                    const information = infoScraper(scrapedInfo);
 
                                     const comic = {
-                                        title, description, coverPage, info, downloadLinks
+                                        title, description, coverPage, information, downloadLinks
                                     };
                                     resolve(comic);
                                 }).catch(
                                     err => {
                                         if(err) { reject(err); }
-                                    }
-                                );
-                            }
-                            ).catch(err => {
-                                if(err) { reject(err); }
+                                    });
                             });
                             comics.push(promise);
                         }
                     }
                 );
-                resolve(comics);
+                resolve(Promise.all(comics));
+            }).catch(err => {
+                if(err) { reject(err); }
             });
-    }).then(function(comics) {
-        return Promise.all(comics);
-    }).catch(err => {
-        if(err) {
-            console.log(err);
-        }
     });
 };
