@@ -1,28 +1,32 @@
 {
-    "name": "comicbooks-api",
-    "version": "0.1.4",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "start": "nodemon index.js",
-        "test": "node ./__test__/test.js"
-    },
-    "keywords": [
-        "comics",
-        "comicbooks",
-        "comicbooks-download-links",
-        "marvel",
-        "DC",
-        "archie",
-        "download comics"
-    ],
-    "author": "Yash Kathe",
-    "license": "GPL-3.0",
-    "dependencies": {
-        "axios": "^0.27.2",
-        "cheerio": "^1.0.0-rc.12"
-    },
-    "devDependencies": {
-        "nodemon": "^2.0.20"
-    }
+  "name": "comicbooks-api",
+  "version": "0.1.4",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test-init": "jest --init",
+    "test": "jest"
+  },
+  "keywords": [
+    "comics",
+    "comicbooks",
+    "comicbooks-download-links",
+    "marvel",
+    "DC",
+    "archie",
+    "download comics"
+  ],
+  "author": "Yash Kathe",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12",
+    "sleep": "^6.3.0"
+  },
+  "devDependencies": {
+    "jest": "^29.2.2",
+    "nodemon": "^2.0.20",
+    "sleep-promise": "^9.1.0"
+  }
 }
