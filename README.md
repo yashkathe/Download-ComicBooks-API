@@ -1,40 +1,60 @@
-# Unoffical Comic books api 
+# Unoffical Comic books api
 
-The following api returns comic book information from various publishers including marvel, dc, archie and many more publications.
+The following api returns comic book information from various publishers
+including marvel, dc, archie and many more publications.
+
+Don't forget to ⭐ the
+[repository](https://github.com/yashkathe/Download-ComicBooks-API)!
 
 ## Example
-Implementing the library for API calls  
 
-### Example 1 
+Implementing the library for API calls
 
-```js
-const comicsApi = require('comicbooks-api');
-
-app.get('/', async (req, res) => {
-    const comics = await comicsApi.getLatestComics(1) 
-    res.json(comics)
-})
-```
-
-The above function takes one argument:  
-1. Page Number  
-
-### Example 2  
+### Example 1
 
 ```js
-const comicsApi = require('comicbooks-api');
+const comicsApi = require("comicbooks-api");
 
-app.get('/', async (req, res) => {
-    const comics = await comicsApi.getComicsThroughSearch('batman', 1) 
-    res.json(comics)
-})
+try {
+	const getApi = async () => {
+		const comics = await comicsApi.getLatestComics(1);
+		console.log(comics);
+	};
+	getApi();
+} catch (err) {
+	console.log(err);
+}
 ```
-The above function takes two arguments: 
-1. Search Query 
+
+The above function takes one argument:
+
+1. Page Number
+
+### Example 2
+
+```js
+const comicsApi = require("comicbooks-api");
+
+try {
+	const getApi = async () => {
+		const comics = await wait comicsApi.getComicsThroughSearch("batman", 1);
+		console.log(comics);
+	};
+	getApi();
+} catch (err) {
+	console.log(err);
+}
+```
+
+The above function takes two arguments:
+
+1. Search Query
 2. Page Number
 
-The function returns an array of objects containing comic book   information    
+The function returns an array of objects containing comic book information
+
 ### example object:
+
 ```js
   {
     title: "Batman – Beyond the White Knight #6 (2022)",
@@ -53,80 +73,82 @@ The function returns an array of objects containing comic book   information
       ZIPPYSHARE: "link here",
     }
   }
-```  
+```
 
 ## List of Publishers and their respective functions
 
 - Marvel Comics  
-getMarvelComics( pageNumber )
+  getMarvelComics( pageNumber )
 
 - DC Comics  
-getDCComics( pageNumber )
+  getDCComics( pageNumber )
 
 - DC Vertigo  
-getDCComicsVertigo( pageNumber )
+  getDCComicsVertigo( pageNumber )
 
-- DC Wildstorm    
-getDCComicsWildstorm( pageNumber )
+- DC Wildstorm  
+  getDCComicsWildstorm( pageNumber )
 
 - Europe Comics  
-getEuropeComics( pageNumber )
+  getEuropeComics( pageNumber )
 
 - Image Comics  
-getImageComics( pageNumber )
+  getImageComics( pageNumber )
 
 - 2000AD  
-ad2000comics( pageNumber )
+  ad2000comics( pageNumber )
 
 - After Shock  
-getAftershockComics( pageNumber ) 
+  getAftershockComics( pageNumber )
 
 - Antartic Press  
-getAntarticPressComics( pageNumber )
+  getAntarticPressComics( pageNumber )
 
-- Archie    
-getArchieComics( pageNumber )
+- Archie  
+  getArchieComics( pageNumber )
 
 - Avatar Press  
-getAvatarPressComics( pageNumber )
+  getAvatarPressComics( pageNumber )
 
 - Aspen  
-getAspenComics( pageNumber )
+  getAspenComics( pageNumber )
 
 - Black Mask  
-getBlackMaskComics( pageNumber )
+  getBlackMaskComics( pageNumber )
 
 - Boom Studios  
-getBoomStudiosComics( pageNumber )
+  getBoomStudiosComics( pageNumber )
 
 - Dark Horse  
-getDarkHorseComic( pageNumber )
+  getDarkHorseComic( pageNumber )
 
 - Dynamite  
-getDynamiteComics( pageNumber )
+  getDynamiteComics( pageNumber )
 
 - IDW  
-getIDWComics( pageNumber )
+  getIDWComics( pageNumber )
 
-- Lion Forge    
-getLionForgeComics( pageNumber )
+- Lion Forge  
+  getLionForgeComics( pageNumber )
 
 - Oni Press  
-getOniPressComics( pageNumber )
+  getOniPressComics( pageNumber )
 
 - Valiant  
-getValiantComics( pageNumber )
+  getValiantComics( pageNumber )
 
 - ZeneScope  
-getZenescopeComics( pageNumber )
+  getZenescopeComics( pageNumber )
 
 ## Other Functions
 
 - Get recently published comics from all publishers  
-getLatestComics( pageNumber )
+  getLatestComics( pageNumber )
 
 - Search comics through search query  
-getComicsThroughSearch( searchQuery , pageNumber )
+  getComicsThroughSearch( searchQuery , pageNumber )
 
 ## Report Problems
-If you have any problems regarding this project, read the following [disclaimer](https://github.com/yashkathe/Download-ComicBooks-API/blob/master/DISCLAIMER.md)
+
+If you have any problems regarding this project, read the following
+[disclaimer](https://github.com/yashkathe/Download-ComicBooks-API/blob/master/DISCLAIMER.md)
